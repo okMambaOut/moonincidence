@@ -1,5 +1,5 @@
 ///|
-struct WorkBudget {
+priv struct WorkBudget {
   mut remaining : Int32
 }
 

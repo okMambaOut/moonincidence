@@ -1,5 +1,5 @@
 ///|
-struct ExtensionCounter {
+priv struct ExtensionCounter {
   predecessors : Array[Int32]
   full : Int32
   memo : Map[Int32, Int64]
@@ -23,7 +23,7 @@ fn Poset::extension_counter(
       }
     }
   }
-  { predecessors, full: (1 << self.count) - 1, memo: Map::new(), budget, }
+  { predecessors, full: (1 << self.count) - 1, memo: Map([]), budget, }
 }
 
 ///|
