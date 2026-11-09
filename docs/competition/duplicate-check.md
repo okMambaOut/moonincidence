@@ -53,4 +53,16 @@ TFTP 实际检查 [PaiGack/moonbit_tftp](https://github.com/PaiGack/moonbit_tftp
 
 匿名 GitHub API 触发限流后改用已绑定账号的只读 API，没有换号；部分 raw.githubusercontent.com 请求重置后改 contents API，失败的请求未记作成功阅读。MoonCakes 页面/API均保存可读证据；不按下载量推断算法质量。未穷尽所有私有/未索引仓库、语言未标注的源文件和搜索排序外结果。交付前需反查关键接口并复核新增注册记录。
 
+## 发布前反向复核（2026-11-09）
+
+重新以 incidence、convolution poset、order polynomial、Dilworth、count_extensions、enumerate_ideals、IncidenceAlgebra、Möbius 检索 MoonCakes，并复核新增数学命中；本次检索原始证据另存，不覆盖初次选题材料。
+
+| 新增相邻项目 | 实际阅读范围与边界 |
+|---|---|
+| `ky678/renky@0.1.3` | 下载精确发布源包，阅读 README、omniring/arith 公共接口、div.mbt 和 laws_wbtest.mbt；μ 是素因子定义的整数数论函数。另读 omniring/ideal 公共接口，其中 ideal 为多项式／有限域理想与 Gröbner 商空间，并非偏序下闭集。全源检索未见一般偏序区间卷积、Dilworth 或历史排名接口。包未提供可验证的同名 GitHub 仓库，不将 404 当作源代码缺失证明。 |
+| `bobzhang/loop_invariants_math@0.17.0` | 下载精确发布源包，阅读 mobius 公共接口、实现与性质测试；公开 mu(Int64) 和 sieve(Int)，属于整数约数 μ(n) 与筛法，没有任意偏序区间核模型。关联仓库 moonbit-community/loop_invariants。 |
+| `bobzhang/hol_light@0.1.0` | 阅读 bobzhang/hol-light.mbt README 与完整树；定位为形式定理证明器，属于搜索术语噪声。本次未作其完整源码／测试审计，不据此作更强结论。 |
+
+未出现需要改变选题或收缩已交付 API 的直接替代。比较仍以任意有限偏序模型、整数区间卷积／求逆和预算化精确组合工作流为单位，不以单个数学术语或包名判定。
+
 **结论：在已记录检索范围内未发现成熟直接替代。** 这不是生态绝对唯一性或官方认可证明。
