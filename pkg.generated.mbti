@@ -1,0 +1,147 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "okMambaOut/moonincidence"
+
+import {
+  "moonbitlang/core/debug",
+}
+
+// Values
+
+// Errors
+pub(all) suberror OrderError {
+  InvalidSize(Int32)
+  InvalidVertex(Int32)
+  Cycle
+  InvalidMatrix
+  DuplicateVertex(Int32)
+  InvalidSubset
+  NotIdeal
+  NotExtension
+  IncompatibleOrders
+  InvalidCoefficient(Int32, Int32)
+  DimensionMismatch
+  NonUnitDiagonal(Int32)
+  ArithmeticOverflow
+  InvalidBudget
+  BudgetExceeded
+  TooManyVertices(Int32)
+  RankOutOfRange
+} derive(Eq, @debug.Debug)
+pub fn OrderError::equal(Self, Self) -> Bool
+pub fn OrderError::not_equal(Self, Self) -> Bool
+pub fn OrderError::to_repr(Self) -> @debug.Repr
+
+// Types and methods
+pub(all) struct ChainDecomposition {
+  chains : Array[Array[Int32]]
+  antichain : Array[Int32]
+} derive(@debug.Debug)
+pub fn ChainDecomposition::to_repr(Self) -> @debug.Repr
+
+pub struct Ideal {
+  // private fields
+} derive(Eq, @debug.Debug)
+pub fn Ideal::add(Self, Int32) -> Self raise OrderError
+pub fn Ideal::addable(Self) -> Array[Int32]
+pub fn Ideal::contains(Self, Int32) -> Bool raise OrderError
+pub fn Ideal::empty(Poset) -> Self
+pub fn Ideal::equal(Self, Self) -> Bool
+pub fn Ideal::from_vertices(Poset, Array[Int32]) -> Self raise OrderError
+pub fn Ideal::full(Poset) -> Self
+pub fn Ideal::generated(Poset, Array[Int32]) -> Self raise OrderError
+pub fn Ideal::is_subset_of(Self, Self) -> Bool raise OrderError
+pub fn Ideal::join(Self, Self) -> Self raise OrderError
+pub fn Ideal::meet(Self, Self) -> Self raise OrderError
+pub fn Ideal::not_equal(Self, Self) -> Bool
+pub fn Ideal::removable(Self) -> Array[Int32]
+pub fn Ideal::remove(Self, Int32) -> Self raise OrderError
+pub fn Ideal::size(Self) -> Int32
+pub fn Ideal::to_repr(Self) -> @debug.Repr
+pub fn Ideal::vertices(Self) -> Array[Int32]
+
+pub struct Kernel {
+  // private fields
+} derive(Eq, @debug.Debug)
+pub fn Kernel::add(Self, Self) -> Self raise OrderError
+pub fn Kernel::apply_lower(Self, Array[Int64]) -> Array[Int64] raise OrderError
+pub fn Kernel::apply_upper(Self, Array[Int64]) -> Array[Int64] raise OrderError
+pub fn Kernel::coefficient(Self, Int32, Int32) -> Int64 raise OrderError
+pub fn Kernel::convolve(Self, Self) -> Self raise OrderError
+pub fn Kernel::delta(Poset) -> Self
+pub fn Kernel::dual(Self) -> Self
+pub fn Kernel::equal(Self, Self) -> Bool
+pub fn Kernel::from_entries(Poset, Array[(Int32, Int32, Int64)]) -> Self raise OrderError
+pub fn Kernel::from_matrix(Poset, Array[Array[Int64]]) -> Self raise OrderError
+pub fn Kernel::inverse(Self) -> Self raise OrderError
+pub fn Kernel::matrix(Self) -> Array[Array[Int64]]
+pub fn Kernel::mobius(Poset) -> Self raise OrderError
+pub fn Kernel::not_equal(Self, Self) -> Bool
+pub fn Kernel::poset(Self) -> Poset
+pub fn Kernel::power(Self, Int32) -> Self raise OrderError
+pub fn Kernel::restrict(Self, Array[Int32]) -> Self raise OrderError
+pub fn Kernel::scale(Self, Int64) -> Self raise OrderError
+pub fn Kernel::solve_left(Self, Self) -> Self raise OrderError
+pub fn Kernel::solve_lower(Self, Array[Int64]) -> Array[Int64] raise OrderError
+pub fn Kernel::solve_right(Self, Self) -> Self raise OrderError
+pub fn Kernel::solve_upper(Self, Array[Int64]) -> Array[Int64] raise OrderError
+pub fn Kernel::subtract(Self, Self) -> Self raise OrderError
+pub fn Kernel::tensor(Self, Self) -> Self raise OrderError
+pub fn Kernel::to_repr(Self) -> @debug.Repr
+pub fn Kernel::with_coefficient(Self, Int32, Int32, Int64) -> Self raise OrderError
+pub fn Kernel::zero(Poset) -> Self
+pub fn Kernel::zeta(Poset) -> Self
+
+pub struct Poset {
+  // private fields
+} derive(Eq, @debug.Debug)
+pub fn Poset::antichain(Int32) -> Self raise OrderError
+pub fn Poset::boolean_lattice(Int32) -> Self raise OrderError
+pub fn Poset::bounded(Self) -> Self raise OrderError
+pub fn Poset::chain(Int32) -> Self raise OrderError
+pub fn Poset::chain_counts(Self) -> Array[Int64] raise OrderError
+pub fn Poset::chain_decomposition(Self) -> ChainDecomposition
+pub fn Poset::comparable(Self, Int32, Int32) -> Bool raise OrderError
+pub fn Poset::count_extensions(Self, Int32) -> Int64 raise OrderError
+pub fn Poset::covers(Self) -> Array[(Int32, Int32)]
+pub fn Poset::disjoint_sum(Self, Self) -> Self raise OrderError
+pub fn Poset::divisibility(Array[Int32]) -> Self raise OrderError
+pub fn Poset::dual(Self) -> Self
+pub fn Poset::enumerate_extensions(Self, Int32, Int32) -> Array[Array[Int32]] raise OrderError
+pub fn Poset::enumerate_ideals(Self, Int32, Int32) -> Array[Ideal] raise OrderError
+pub fn Poset::equal(Self, Self) -> Bool
+pub fn Poset::from_matrix(Array[Array[Bool]]) -> Self raise OrderError
+pub fn Poset::from_relations(Int32, Array[(Int32, Int32)]) -> Self raise OrderError
+pub fn Poset::height(Self) -> Int32
+pub fn Poset::ideal_size_counts(Self, Int32, Int32) -> Array[Int64] raise OrderError
+pub fn Poset::induced(Self, Array[Int32]) -> Self raise OrderError
+pub fn Poset::interval(Self, Int32, Int32) -> Array[Int32] raise OrderError
+pub fn Poset::interval_chain_counts(Self, Int32, Int32) -> Array[Int64] raise OrderError
+pub fn Poset::is_antichain(Self, Array[Int32]) -> Bool raise OrderError
+pub fn Poset::is_chain(Self, Array[Int32]) -> Bool raise OrderError
+pub fn Poset::is_extension(Self, Array[Int32]) -> Bool raise OrderError
+pub fn Poset::leq(Self, Int32, Int32) -> Bool raise OrderError
+pub fn Poset::less(Self, Int32, Int32) -> Bool raise OrderError
+pub fn Poset::lower_closure(Self, Array[Int32]) -> Array[Int32] raise OrderError
+pub fn Poset::matrix(Self) -> Array[Array[Bool]]
+pub fn Poset::maximal(Self) -> Array[Int32]
+pub fn Poset::maximal_in(Self, Array[Int32]) -> Array[Int32] raise OrderError
+pub fn Poset::minimal(Self) -> Array[Int32]
+pub fn Poset::minimal_in(Self, Array[Int32]) -> Array[Int32] raise OrderError
+pub fn Poset::not_equal(Self, Self) -> Bool
+pub fn Poset::order_polynomial(Self, Int32, Bool, Int32, Int32) -> Int64 raise OrderError
+pub fn Poset::ordinal_sum(Self, Self) -> Self raise OrderError
+pub fn Poset::predecessors(Self, Int32) -> Array[Int32] raise OrderError
+pub fn Poset::product(Self, Self) -> Self raise OrderError
+pub fn Poset::rank_extension(Self, Array[Int32], Int32) -> Int64 raise OrderError
+pub fn Poset::reduced_interval_euler(Self, Int32, Int32) -> Int64 raise OrderError
+pub fn Poset::relabel(Self, Array[Int32]) -> Self raise OrderError
+pub fn Poset::size(Self) -> Int32
+pub fn Poset::successors(Self, Int32) -> Array[Int32] raise OrderError
+pub fn Poset::to_repr(Self) -> @debug.Repr
+pub fn Poset::unrank_extension(Self, Int64, Int32) -> Array[Int32] raise OrderError
+pub fn Poset::upper_closure(Self, Array[Int32]) -> Array[Int32] raise OrderError
+pub fn Poset::width(Self) -> Int32
+
+// Type aliases
+
+// Traits
