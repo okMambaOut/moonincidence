@@ -1,0 +1,6 @@
+import {
+  "okMambaOut/moonincidence" @incidence,
+  "moonbitlang/core/debug",
+}
+
+pkgtype(kind: "executable")
