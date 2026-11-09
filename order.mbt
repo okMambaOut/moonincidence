@@ -174,3 +174,9 @@ pub extend Poset with Eq::{equal, not_equal}
 
 ///|
 pub extend OrderError with Eq::{equal, not_equal}
+
+///|
+pub extend Poset with @debug.Debug::{to_repr}
+
+///|
+pub extend OrderError with @debug.Debug::{to_repr}
