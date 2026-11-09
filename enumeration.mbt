@@ -27,7 +27,15 @@ pub fn Poset::enumerate_ideals(
   max_states : Int32,
   max_results : Int32,
 ) -> Array[Ideal] raise OrderError {
-  let budget = WorkBudget::create(max_states)
+  self.ideals_with_budget(WorkBudget::create(max_states), max_results)
+}
+
+///|
+fn Poset::ideals_with_budget(
+  self : Poset,
+  budget : WorkBudget,
+  max_results : Int32,
+) -> Array[Ideal] raise OrderError {
   if max_results <= 0 {
     raise InvalidBudget
   }
