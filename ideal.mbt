@@ -1,9 +1,10 @@
 ///|
 /// An immutable downward-closed subset of an indexed order.
+#derive(Debug, Eq)
 pub struct Ideal {
   priv order : Poset
   priv included : Array[Bool]
-} derive(Debug, Eq)
+}
 
 ///|
 pub extend Ideal with Eq::{equal, not_equal}

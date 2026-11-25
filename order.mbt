@@ -1,5 +1,6 @@
 ///|
 /// Invalid inputs, arithmetic limits and resource exhaustion are explicit errors.
+#derive(Debug, Eq)
 pub(all) suberror OrderError {
   InvalidSize(Int32)
   InvalidVertex(Int32)
@@ -18,15 +19,16 @@ pub(all) suberror OrderError {
   BudgetExceeded
   TooManyVertices(Int32)
   RankOutOfRange
-} derive(Debug, Eq)
+}
 
 ///|
 /// Immutable finite partial order; indices always retain the caller's labels.
+#derive(Debug, Eq)
 pub struct Poset {
   priv count : Int32
   priv relation : Array[Bool]
   priv linear : Array[Int32]
-} derive(Debug, Eq)
+}
 
 ///|
 fn valid_size(n : Int32) -> Unit raise OrderError {

@@ -1,9 +1,10 @@
 ///|
 /// An immutable integer coefficient for every interval of one finite order.
+#derive(Debug, Eq)
 pub struct Kernel {
   priv order : Poset
   priv coefficients : Array[Int64]
-} derive(Debug, Eq)
+}
 
 ///|
 pub extend Kernel with Eq::{equal, not_equal}

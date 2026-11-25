@@ -1,10 +1,11 @@
 ///|
 /// A minimum chain partition and a maximum antichain, with equal cardinalities.
 /// Output arrays are independent snapshots, not mutable state inside Poset.
+#derive(Debug)
 pub(all) struct ChainDecomposition {
   chains : Array[Array[Int32]]
   antichain : Array[Int32]
-} derive(Debug)
+}
 
 ///|
 pub extend ChainDecomposition with @debug.Debug::{to_repr}

@@ -8,6 +8,7 @@ import {
 // Values
 
 // Errors
+#derive(Eq, @debug.Debug)
 pub(all) suberror OrderError {
   InvalidSize(Int32)
   InvalidVertex(Int32)
@@ -26,21 +27,23 @@ pub(all) suberror OrderError {
   BudgetExceeded
   TooManyVertices(Int32)
   RankOutOfRange
-} derive(Eq, @debug.Debug)
+}
 pub fn OrderError::equal(Self, Self) -> Bool
 pub fn OrderError::not_equal(Self, Self) -> Bool
 pub fn OrderError::to_repr(Self) -> @debug.Repr
 
 // Types and methods
+#derive(@debug.Debug)
 pub(all) struct ChainDecomposition {
   chains : Array[Array[Int32]]
   antichain : Array[Int32]
-} derive(@debug.Debug)
+}
 pub fn ChainDecomposition::to_repr(Self) -> @debug.Repr
 
+#derive(Eq, @debug.Debug)
 pub struct Ideal {
   // private fields
-} derive(Eq, @debug.Debug)
+}
 pub fn Ideal::add(Self, Int32) -> Self raise OrderError
 pub fn Ideal::addable(Self) -> Array[Int32]
 pub fn Ideal::contains(Self, Int32) -> Bool raise OrderError
@@ -59,9 +62,10 @@ pub fn Ideal::size(Self) -> Int32
 pub fn Ideal::to_repr(Self) -> @debug.Repr
 pub fn Ideal::vertices(Self) -> Array[Int32]
 
+#derive(Eq, @debug.Debug)
 pub struct Kernel {
   // private fields
-} derive(Eq, @debug.Debug)
+}
 pub fn Kernel::add(Self, Self) -> Self raise OrderError
 pub fn Kernel::apply_lower(Self, Array[Int64]) -> Array[Int64] raise OrderError
 pub fn Kernel::apply_upper(Self, Array[Int64]) -> Array[Int64] raise OrderError
@@ -91,9 +95,10 @@ pub fn Kernel::with_coefficient(Self, Int32, Int32, Int64) -> Self raise OrderEr
 pub fn Kernel::zero(Poset) -> Self
 pub fn Kernel::zeta(Poset) -> Self
 
+#derive(Eq, @debug.Debug)
 pub struct Poset {
   // private fields
-} derive(Eq, @debug.Debug)
+}
 pub fn Poset::antichain(Int32) -> Self raise OrderError
 pub fn Poset::boolean_lattice(Int32) -> Self raise OrderError
 pub fn Poset::bounded(Self) -> Self raise OrderError

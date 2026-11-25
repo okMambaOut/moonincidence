@@ -1,6 +1,6 @@
 # MoonIncidence
 
-任意有限偏序上的整数关联代数、Möbius 反演和有预算的精确组合计算。模块为 `okMambaOut/moonincidence@0.1.0`，采用 MIT 许可证。
+任意有限偏序上的整数关联代数、Möbius 反演和有预算的精确组合计算。模块为 `okMambaOut/moonincidence@0.1.1`，采用 MIT 许可证。
 
 当层级存在共享祖先时，按树递归相加容易重复计数；当依赖关系只有部分先后约束时，单个拓扑序也不能回答“有多少合法历史”“第 k 个历史是什么”。本库把这些问题表示为明确的偏序、区间系数和下闭集，提供可组合的公共 API。
 
@@ -12,12 +12,12 @@
 
 ## 安装与环境
 
-使用 MoonBit 官方工具链，`moonc` 不低于 **0.10.16**。本版本固定验证于 `moon 0.1.20261016` / `moonc v0.10.16+b1a0e846e`。支持 wasm-gc、wasm、js、native；JS 需要 Node.js，native 还需要平台 C 工具链。
+使用 MoonBit 官方工具链，`moonc` 不低于 **0.10.22**（此前版本不支持本仓库使用的 `#derive` 属性语法）。本版本固定验证于 `moon 0.1.20261119` / `moonc v0.10.22+124d61d05`。支持 wasm-gc、wasm、js、native；JS 需要 Node.js，native 还需要平台 C 工具链。
 
 在已有 MoonBit 模块中执行：
 
 ```sh
-moon add okMambaOut/moonincidence@0.1.0
+moon add okMambaOut/moonincidence@0.1.1
 ```
 
 在消费包的 `moon.pkg` 中声明：
